@@ -4,266 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supermercado Online</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #26a500;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        .container {
-            display: flex;
-        }
-        nav {
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: left;
-            width: 350px;
-            height: 149vh;
-        }
-        nav a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            padding: 5px 10px;
-        }
-        nav a:hover {
-            background-color: #26a500;
-            color: #fff;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f8f9fa;
-            min-width: 160px;
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: black;
-            padding: 5px 9px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #26a500;
-            color: #fff;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        section {
-            padding: 10px;
-            display: table;
-            width: 200%;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .product-card {
-            display: table-cell;
-            border: 1px solid #ddd;
-            border-radius: 1px;
-            height: 300px; /* diminui a linha */
-            width: 290x;
-            margin: 1px;
-            padding: 10px;
-            text-align: center;
-        }
-        .product-card img {
-            width: ;
-            width: 100%;
-            border-radius: 1px;
-        }
-
-        .product-table {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            border-spacing: 2px; /* Espaçamento entre as células */
-        }
-        
-                 /* Estilo para cada linha da tabela */
-        .product-row {
-            display: table-row;
-        }
-        .row {
-            padding-bottom: 10px; /* Adiciona espaço entre as linhas */
-            margin-bottom: 10px; /* Adiciona espaço entre as linhas */
-        }
-
-
-        footer {
-            background-color: #26a500;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-        }
-        @media only screen and (max-width: 600px) {
-            .container {
-                flex-direction: column;
-            }
-            nav {
-                width: 100%;
-                height: auto;
-            }
-        }
-    </style>
+   <link rel="stylesheet" href="../css/site.css">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/34/34627.png" type="image/png">
+    <script async src="carrinho.js"></script>
 </head>
 <body>
     <header>
         <h1>Supermercado Online</h1>
+        <div class="dropdown" id="cart">
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></a>
+            <div class="dropdown-content" id="cart-content">
+                <h2 class="selection-title">Carrinho</h2>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th class="table-head-item first-col">item</th>
+                            <th class="table-head-item second-col">preço</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Itens do carrinho serão adicionados aqui -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" class="cart-total-container">
+                                <strong>Total</strong>
+                                <span id="total"></span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <button type="button" class="purchase-button" onclick="limparCarrinho()">Limpar Carrinho</button>
+            </div>
+        </div>
     </header>
     <div class="container">
-        <nav>
-            <a href="http://localhost/distribuidora/home.php">Home</a>
-            <div class="dropdown">
-                <a href="#">Produtos</a>
-                <div class="dropdown-content">
-                    <a href="http://localhost/distribuidora/bebidas.php">Bebidas</a>
-                    <a href="http://localhost/distribuidora/açougue.php">Açougue</a>
-                    <a href="http://localhost/distribuidora/cereais.php">Cereais</a>
-                    <a href="http://localhost/distribuidora/enlatados.php">Enlatados</a>
-                    <a href="http://localhost/distribuidora/higiene.php">Higiene</a>
-                    <a href="http://localhost/distribuidora/hortifruti.php">Hortifrúti</a>
-                    <a href="http://localhost/distribuidora/laticinios.php">Laticíneos</a>
-                </div>
-            </div>
-                <a href="#">Ofertas</a>
-                <a href="#">Contato</a>
-        </nav>
-        <section>
-            <div class="product-table">
-                <div class="product-row">
-                    <div class="row"><div class="product-card">
-                <img src="https://dcdn.mitiendanube.com/stores/001/258/076/products/e0cbc478a082be51826440f3dd493836awsaccesskeyidakiatclmsgfx4j7tu445expires1681697264signaturezbpqaxhw1fux7gl550wwjfdlgh03d-68203856d44a427f3716791052729105-640-0." alt="Produto 1" height="300" width="300px" >
-                <h3>Vinho</h3>
-                <p>Vinho San Martin 750ml</p>
-                <p>R$ 87,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://superprix.vteximg.com.br/arquivos/ids/177082-600-600/Bebida-Mista-Smirnoff-Ice-275ml.png?v=636559378268330000" alt="Produto 1" height="300" width="300px">
-                <h3>Smirnoff</h3>
-                <p>Smirnoff Ice 750ml</p>
-                <p>R$ 12,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://mercantilatacado.vtexassets.com/arquivos/ids/168398-800-auto?v=638337771562830000&width=800&height=auto&aspect=true" alt="Produto 1" height="300" width="300px">
-                <h3>Vodka</h3>
-                <p>Vodka Bolvana 1L</p>
-                <p>R$ 25,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://dcdn.mitiendanube.com/stores/001/043/122/products/cerveja-skol-300-ml1-f1321ec8d2f3b8a05615676911719089-640-0.jpg" alt="Produto 1" height="300" width="300px">
-                <h3>Skol Cerveja</h3>
-                <p>Cerveja Skol 350ml</p>
-                <p>R$ 8,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://static.paodeacucar.com/img/uploads/1/691/24572691.jpg" alt="Produto 1" height="300" width="300px">
-                <h3>Cachaça</h3>
-                <p>Cachaça Ypióca 1L</p>
-                <p>R$ 15,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://images.tcdn.com.br/img/img_prod/1115696/whisky_johnnie_walker_red_label_escoces_1l_283_1_a060462289c22109d7d2c25d1b6d5514.jpg" alt="Produto 1" height="300" width="300px">
-                <h3>Whisky Black Label</h3>
-                <p>Whisky Balck Label 1L</p>
-                <p>R$ 10,00</p>
-            </div></div>
-            <div class="row"><div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 2">
-                <h3>Produto 2</h3>
-                <p>Descrição do Produto 2.</p>
-                <p>R$ 15,00</p>
-            </div>
-             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div></div>
-            <div class="row"><div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 2">
-                <h3>Produto 2</h3>
-                <p>Descrição do Produto 2.</p>
-                <p>R$ 15,00</p>
-            </div>
-             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3.</p>
-                <p>R$ 20,00</p>
-            </div></div>
-            
+    <nav>
 
-            
+<div class="dropdown">
+    <a href="#">Produtos</a>
+       <div class="dropdown-content">
+        <a href="bebidas.php">Bebidas</a>
+        <a href="acougue.php">Açougue</a>
+        <a href="cereais.php">Cereais</a>
+        <a href="enlatados.php">Enlatados</a>
+        <a href="higiene.php">Higiene</a>
+        <a href="hortifruti.php">Hortifrúti</a>
+        <a href="laticinios.php">Laticíneos</a>
+        <a href="doces.php">Doces</a>
+    </div>
+</div>
+    <a href="../index.php">Cadastro</a>
+    <a href="sobre.php">Sobre</a>
+    <a href="acesso.php">Acesso</a>
+</nav>
+        <section>
+        <section>
+    <div class="row">
+        <div class="product-card">
+            <img src="https://dcdn.mitiendanube.com/stores/001/258/076/products/e0cbc478a082be51826440f3dd493836awsaccesskeyidakiatclmsgfx4j7tu445expires1681697264signaturezbpqaxhw1fux7gl550wwjfdlgh03d-68203856d44a427f3716791052729105-640-0." alt="Produto 1" height="300" width="300px" class="product-image">
+            <strong class="product-title">Vinho</strong>
+            <p>Vinho San Martin</p>
+            <div class="product-price-container">
+                <span class="product-price">R$ 87,00</span>
+                <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Vinho', 87.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
             </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://superprix.vteximg.com.br/arquivos/ids/177082-600-600/Bebida-Mista-Smirnoff-Ice-275ml.png?v=636559378268330000"  alt="Produto 1" height="300" width="300px" class="product-image">
+            <strong class="product-title">Smirnoff</strong>
+            <p>Smirnoff Ice original</p>
+            <div class="product-price-container">
+                <span class="product-price">R$ 12,00</span>
+                <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Smirnoff', 12.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
             </div>
-            <!-- Adicione mais produtos conforme necessário -->
+        </div>
+
+        <div class="product-card">
+            <img src="https://mercantilatacado.vtexassets.com/arquivos/ids/168398-800-auto?v=638337771562830000&width=800&height=auto&aspect=true" alt="Produto 2" height="300" width="300px" class="product-image">
+            <strong class="product-title">Vodka</strong>
+            <p>Vodka Bolvana</p>
+            <div class="product-price-container">
+                <span class="product-price">R$ 25,00</span>
+                <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Vodka', 25.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://static.paodeacucar.com/img/uploads/1/691/24572691.jpg" alt="Produto 3" height="300" width="300px" class="product-image">
+            <strong class="product-title">Cerveja</strong>
+            <p>Cerveja Ypioca</p>
+            <div class="product-price-container">
+                <span class="product-price">R$ 8,00</span>
+                <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Cerveja', 8.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.tcdn.com.br/img/img_prod/1115696/whisky_johnnie_walker_red_label_escoces_1l_283_1_a060462289c22109d7d2c25d1b6d5514.jpg" alt="Produto 3" height="300" width="300px" class="product-image">
+            <strong class="product-title">Cachaça</strong>
+            <p>Cachaça Black Label</p>
+            <div class="product-price-container">
+                <span class="product-price">R$ 15,00</span>
+                <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Cachaça', 15.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
+            </div>
+        </div>
+    </div>
+</section>
         </section>
     </div>
+    </div>
     <footer>
-        <p>&copy; Feito por Valter e Brena. Todos os direitos reservados.</p>
+        <p>&copy; Feito por Valter, Brena e VJ. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>

@@ -8,7 +8,7 @@ function adicionarAoCarrinho(nome, preco) {
     localStorage.setItem('total', total);
 
     atualizarCarrinho();
-    mostrarCarrinho();
+    descrescerQuantidade();
 }
 
 function atualizarCarrinho() {
@@ -39,3 +39,20 @@ function mostrarCarrinho() {
     const carrinho = document.getElementById('drinksID');
     carrinho.style.display = "flex"
 }
+
+function descrescerQuantidade() {
+    let quantidadeEstoque = document.querySelectorAll('.quantidadePrduto');
+    quantidadeEstoque.forEach (produto => {
+        console.log(produto.innerHTML);
+        produto.innerHTML --;
+    })
+    quantidadeEstoque.innerHTML --;
+    console.log(quantidadeEstoque);
+
+}
+
+function mostrarBotao(event) {
+    // Acessa o elemento específico que foi clicado
+    const botaoClicado = event.target;
+    console.log(botaoClicado);
+  }

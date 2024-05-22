@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="log.css">
+    <link rel="stylesheet" href="css/log.css">
+    <style>
+
+   header {
+   background-color: #26a500;
+   color: #fff;
+   padding: 10px;
+   text-align: center;
+   }  
+
+   footer {
+    background-color: #26a500;
+    color: #fff;
+    padding: 0px;
+    text-align: center;
+    width: 100%;
+    height: 35px;
+    position: fixed;
+    bottom: 0;
+}
+    </style>
     <title>Log In</title>
 </head>
 <body>
+<header>
+        <div class="main-title"><h1>Supermercado Online</h1></div>
+            </div>
+        </div>
+   </header>
+
 <div class="wrapper">
 
    <form action="index.php" method="post">
@@ -29,12 +55,13 @@
 
                         <?php
 
-                        include 'verificar/verificar.php';
+                        include 'verificar/verificarClientes.php';
 
                         ?>
 
                      </form>
-                     <form action="verificar/verificar2.php" method="post">
+                     
+                     <form action="verificar/verificarCad.php" method="post">
                   </div>
                   
                   <div class="flip-card__back">
@@ -48,7 +75,7 @@
                         <button class="flip-card__btn">Confirmar!</button>
                         <br>
                      
-                        
+
                   </div>
                </div>
                </form>
@@ -56,5 +83,8 @@
         </div>   
         </form>
    </div>
+   <footer>
+        <p>&copy; Feito por Valter, Brena e VJ. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>

@@ -34,14 +34,15 @@
     z-index: 1;
   }
 
-#finalizar {
-  margin: 0;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 22px;
-  height: 60px;
-}
+  #finalizar {
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Alinhado à esquerda */
+    font-size: 22px;
+    height: 60px;
+  }
+  
 
 .navbar__cart {
   display: flex;
