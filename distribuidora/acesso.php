@@ -50,7 +50,7 @@
 
                 include_once '../verificar/verificarGerente.php';
 
-                ?>
+?>
 
              </form>
         </section>

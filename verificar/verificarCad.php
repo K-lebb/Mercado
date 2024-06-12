@@ -6,21 +6,26 @@ $nome = mysqli_real_escape_string($conn, $_POST['nome']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $senha = mysqli_real_escape_string($conn, $_POST['senha']);
 
-// Consulta SQL para verificar se já existe um registro com o mesmo email
-$sql = "SELECT * FROM clientes WHERE email = '$email'";
-$result = $conn->query($sql);
+try {
+    // Consulta SQL para verificar se já existe um registro com o mesmo email
+    $sql = "SELECT * FROM clientes WHERE email = '$email'";
+    $result = $conn->query($sql);
 
-// Verificar se há algum resultado
-if ($result->num_rows > 0) {
-    echo "Já existe um registro com este email.";
-    header("refresh:3; url=../distribuidora/home.php");
-} else {
-    $sql = "INSERT INTO clientes (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
-    if ($conn->query($sql) === TRUE) {
-        echo "Registro inserido com sucesso!";
+    if ($result->num_rows > 0) {
+        echo "Já existe um registro com este email.";
+        sleep(3);
+        header("location: ../home.php");
     } else {
-        echo "Erro ao inserir registro: " . $conn->error;
+        // Inserir o registro na tabela
+        $sql = "INSERT INTO clientes (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+        if ($conn->query($sql) === TRUE) {
+            echo "Registro inserido com sucesso!";
+        } else {
+            echo "Erro ao inserir registro: " . $conn->error;
+        }
     }
+} catch (Exception $e) {
+    echo "Erro inesperado: " . $e->getMessage();
 }
 
 // Fechar a conexão com o banco de dados
