@@ -48,7 +48,7 @@
         <a href="acougue.php">Açougue</a>
         <a href="cereais.php">Cereais</a>
         <a href="enlatados.php">Enlatados</a>
-        <a href="hortifruiti.php">Higiene</a>
+        <a href="higiene.php">Higiene</a>
         <a href="hortifruti.php">Hortifrúti</a>
         <a href="laticinios.php">Laticíneos</a>
         <a href="doces.php">Doces</a>
@@ -60,61 +60,141 @@
 </nav>
         <section>
         <div class="row">
-            <div class="product-card">
-                <div class="row"><div class="product-card">
-                <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137794491%2Fovo-de-pascoa-lacta-barbie-166g-1.jpg%3Fv%3D638436930632070000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Ovo de Páscoa Lacta Barbie</strong>
-                <p>166g</p>
-                <div class="product-price-container">
-                    <span class=product-price>R$ 69,49</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Pascoa Barbie', 69.49)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137794507%2Fovo-de-pascoa-lacta-hotwheels-166g-1.jpg%3Fv%3D638436931353230000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Ovo de Páscoa Lacta Hotwheels</strong>
-                <p>166g</p>
-                <div class="product-price-container">
-                    <span class=product-price>R$ 69,90</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Hotwheels', 69.90)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137794495%2Fovo-de-pascoa-lacta-favoritos-560g-1.jpg%3Fv%3D638436930821830000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Ovo de Páscoa Lacta Favoritos</strong>
-                <p>560g</p>
-                <div class="product-price-container">
-                    <span class=product-price>R$ 87,90</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Favoritos', 87.90)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137796506%2Fovo-de-pascoa-lacta-batman-166g-1.jpg%3Fv%3D638436941884170000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Ovo de Páscoa Lacta Batman</strong>
-                <p>166g</p>
-                <div class="product-price-container">
-                    <span class=product-price>R$ 69,90</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Batman', 69.90)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137796550%2Fovo-de-pascoa-bis-ao-leite-318g-1.jpg%3Fv%3D638436942751630000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Ovo de Páscoa Bis ao Leite</strong>
-                <p>318g</p>
-                <div class="product-price-container">
-                    <span class=product-price>R$ 56,99</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Bis ao Leite', 56.99)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137796495%2Fovo-de-pascoa-diamante-negro-laka-500g-1.jpg%3Fv%3D638436941791170000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Ovo de Páscoa Diamante Negro Laka</strong>
-                <p>500g</p>
-                <div class="product-price-container">
-                    <span class=product-price>R$ 99,90</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Diamante Negro', 99.90)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div></div>
+        <div class="product-card">
+    <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137794491%2Fovo-de-pascoa-lacta-barbie-166g-1.jpg%3Fv%3D638436930632070000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Ovo de Páscoa Lacta Barbie</strong>
+    <p>166g</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 69,49</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Barbie', 69.49)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "42") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137794507%2Fovo-de-pascoa-lacta-hotwheels-166g-1.jpg%3Fv%3D638436931353230000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Ovo de Páscoa Lacta Hotwheels</strong>
+    <p>166g</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 69,90</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Hotwheels', 69.90)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "43") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137794495%2Fovo-de-pascoa-lacta-favoritos-560g-1.jpg%3Fv%3D638436930821830000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Ovo de Páscoa Lacta Favoritos</strong>
+    <p>560g</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 87,90</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Favoritos', 87.90)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "44") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137796506%2Fovo-de-pascoa-lacta-batman-166g-1.jpg%3Fv%3D638436941884170000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Ovo de Páscoa Lacta Batman</strong>
+    <p>166g</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 69,90</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Batman', 69.90)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "45") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://mercado.carrefour.com.br/_next/image?url=https%3A%2F%2Fcarrefourbrfood.vtexassets.com%2Farquivos%2Fids%2F137796550%2Fovo-de-pascoa-bis-ao-leite-318g-1.jpg%3Fv%3D638436942751630000&w=384&q=75" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Ovo de Páscoa Bis ao Leite</strong>
+    <p>318g</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 56,99</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Ovo de Páscoa Bis ao Leite', 56.99)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "46") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    
+</div>
+</div>
             </section>
     </div>
     <footer>

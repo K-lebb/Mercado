@@ -58,67 +58,149 @@
                 <a href="#">Sobre Nós</a>
         </nav>
         <section>
-        <div class="product-table">
+    <div class="product-table">
     <div class="product-row">
         <div class="row">
-            <div class="product-card">
-                <img src="https://images-americanas.b2w.io/produtos/01/00/img3/402530/9/40253083_1GG.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Sabonete</strong>
-                <p>Sabonete Lux</p>
-                <div class="product-price-container">
-                    <span class="product-price">R$ 2,50</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Sabonete', 2.50)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images-americanas.b2w.io/produtos/01/00/img3/43580885/9/4358088588_1GG.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Shampoo</strong>
-                <p>Shampoo Dove</p>
-                <div class="product-price-container">
-                    <span class="product-price">R$ 20,00</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Shampoo', 20.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images-americanas.b2w.io/produtos/01/00/img3/302332/9/30233289_1GG.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Condicionador</strong>
-                <p>Condicionador Dove</p>
-                <div class="product-price-container">
-                    <span class="product-price">R$ 14,00</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Condicionador', 14.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images-americanas.b2w.io/produtos/01/00/img/27952/6/27952668_1GG.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Escova de Dentes</strong>
-                <p>Escova de Dentes Colgate</p>
-                <div class="product-price-container">
-                    <span class="product-price">R$ 12,00</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Escova de Dentes', 12.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button >
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images-americanas.b2w.io/produtos/6017599208/imagens/kit-2-papel-higienico-noble-neutro-folha-dupla-12-rolos-de-20m-cada/6017599208_1_large.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Papel Higiênico</strong>
-                <p>Papel Higiênico Noble</p>
-                <div class="product-price-container">
-                    <span class="product-price">R$ 8,00</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Papel Higiênico', 8.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images-americanas.b2w.io/produtos/01/00/img3/233187/9/23318775_1GG.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
-                <strong class="product-title">Produto 1</strong>
-                <p>Descrição do Produto 1.</p>
-                <div class="product-price-container">
-                    <span class="product-price">R$ 10,00</span>
-                    <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Vinho', 87.00)"><img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon"></button>
-                </div>
-            </div>
-                
+        <div class="product-card">
+    <img src="https://images-americanas.b2w.io/produtos/01/00/img3/402530/9/40253083_1GG.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Sabonete</strong>
+    <p>Sabonete Lux</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 2,50</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Sabonete', 2.50)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "27") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://images-americanas.b2w.io/produtos/01/00/img3/43580885/9/4358088588_1GG.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Shampoo</strong>
+    <p>Shampoo Dove</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 20,00</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Shampoo', 20.00)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "28") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://images-americanas.b2w.io/produtos/01/00/img3/302332/9/30233289_1GG.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Condicionador</strong>
+    <p>Condicionador Dove</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 14,00</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Condicionador', 14.00)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "29") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://a-static.mlcdn.com.br/800x560/escova-de-dente-colgate-classic-clean-4-unidades/magazineluiza/227703400/aa4a7fc7aca3770088469593dc4237d3.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Escova de Dentes</strong>
+    <p>Escova de Dentes Colgate</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 12,00</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Escova de Dentes', 12.00)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas  = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "30") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://a-static.mlcdn.com.br/800x560/kit-papel-higienico-folha-dupla-noble-2-pacotes-com-16-unidades-cada/magazineluiza/229795600/01b7c58019a045c69d587b58eda5e41a.jpg" alt="Produto 1" height="300" width="300px" class="product-image">
+    <strong class="product-title">Papel Higiênico</strong>
+    <p>Papel Higiênico Noble</p>
+    <div class="product-price-container">
+        <span class="product-price">R$ 8,00</span>
+        <button type="button" class="button-hover-background" onclick="adicionarAoCarrinho('Papel Higiênico', 8.00)">
+            <img src="https://cdn-icons-png.flaticon.com/128/34/34627.png" alt="cart-icon">
+        </button>
+        <p>Quantidade</p>
+        <?php
+        include_once ("../verificar/conexao.php");
+        $sql = "SELECT quantidade, id_duplicatas, id FROM produtos WHERE id_duplicatas = 5";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row["id"] == "31") {
+                    echo "<span class='quantidadeProduto'>" . $row["quantidade"] . "</span>";
+                }
+            }
+        }
+
+        ?>
 
     </div>
 </div>
+</div>
+</div>
+</div>
+</section>
     <footer>
         <p>&copy; Feito por Valter, Brena e VJ. Todos os direitos reservados.</p>
     </footer>
