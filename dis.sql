@@ -1,33 +1,8 @@
--- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3306
--- Tempo de geração: 28-Maio-2024 às 09:19
--- Versão do servidor: 8.0.36-0ubuntu0.22.04.1
--- versão do PHP: 8.1.2-1ubuntu2.17
+CREATE DATABASE dis;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+USE dis;
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Banco de dados: `dis`
---
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `clientes`
---
-
-CREATE TABLE `clientes` (
+CREATE TABLE clientes (
   `id` int NOT NULL,
   `nome` varchar(30) DEFAULT NULL,
   `endereco` varchar(30) DEFAULT NULL,
@@ -37,11 +12,92 @@ CREATE TABLE `clientes` (
   `email` varchar(30) DEFAULT NULL,
   `senha` varchar(30) DEFAULT NULL,
   `idade` int 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
---
--- Extraindo dados da tabela `clientes`
---
+CREATE TABLE distribuidora (
+  `id` int NOT NULL,
+  `id_produtos` int DEFAULT NULL
+);
+
+CREATE TABLE duplicatas (
+  `id` int NOT NULL,
+  `numero` int DEFAULT NULL,
+  `vencimento` date DEFAULT NULL,
+  `id_cliente` int DEFAULT NULL,
+  `banco` varchar(30) DEFAULT NULL
+);
+
+CREATE TABLE faturas (
+  `id` int NOT NULL,
+  `numero` int DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  `id_duplicatas` int DEFAULT NULL
+); 
+
+CREATE TABLE funcionarios (
+  `id` int NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL
+);
+
+CREATE TABLE produtos (
+  `id` int NOT NULL,
+  `titulo` varchar(30) NOT NULL,
+  `id_duplicatas` int DEFAULT NULL,
+  `preco` float DEFAULT NULL,
+  `familia` varchar(30) DEFAULT NULL,
+  `custo` float DEFAULT NULL,
+  `quantidade` int NOT NULL,
+  `vendas` int NOT NULL,
+  `lucro` decimal(10,2) DEFAULT NULL
+);
+
+ALTER TABLE clientes ADD PRIMARY KEY (`id`);
+
+ALTER TABLE clientes  ADD KEY `id_duplicatas` (`id_duplicatas`);
+
+ALTER TABLE distribuidora ADD PRIMARY KEY (`id`);
+
+ALTER TABLE distribuidora  ADD KEY `id_produtos` (`id_produtos`);
+
+ALTER TABLE duplicatas ADD PRIMARY KEY (`id`);
+
+ALTER TABLE duplicatas ADD KEY `id_cliente` (`id_cliente`);
+
+ALTER TABLE faturas ADD PRIMARY KEY (`id`);
+
+ALTER TABLE faturas ADD KEY `id_duplicatas3` (`id_duplicatas`);
+
+ALTER TABLE funcionarios ADD PRIMARY KEY (`id`);
+
+ALTER TABLE funcionario ADD UNIQUE KEY `email` (`email`);
+
+ALTER TABLE produtos ADD PRIMARY KEY (`id`);
+
+ALTER TABLE produtos ADD KEY `id_duplicatas2` (`id_duplicatas`);
+
+ALTER TABLE clientes MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE distribuidora MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `duplicatas` MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE faturas MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE funcionarios MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE produtos MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE clientes ADD CONSTRAINT `id_duplicatas` FOREIGN KEY (`id_duplicatas`) REFERENCES `duplicatas` (`id`);
+
+ALTER TABLE distribuidora ADD CONSTRAINT `id_produtos` FOREIGN KEY (`id_produtos`) REFERENCES `produtos` (`id`);
+
+ALTER TABLE duplicatas ADD CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`);
+
+ALTER TABLE faturas ADD CONSTRAINT `id_duplicatas3` FOREIGN KEY (`id_duplicatas`) REFERENCES `duplicatas` (`id`);
+
+ALTER TABLE produtos ADD CONSTRAINT `id_duplicatas2` FOREIGN KEY (`id_duplicatas`) REFERENCES `duplicatas` (`id`); 
 
 INSERT INTO `clientes` (`id`, `nome`, `endereco`, `faturas`, `pedidos_de_venda`, `id_duplicatas`, `email`, `senha`, `idade`) VALUES
 (1, 'gabriel kaleb', NULL, 471214, NULL, NULL, 'gabriel@gmail.com', '123456', 18),
@@ -83,35 +139,6 @@ INSERT INTO `clientes` (`id`, `nome`, `endereco`, `faturas`, `pedidos_de_venda`,
 (43, 'savio', NULL, 354, NULL, NULL, 'saviobf@gmail.com', 'pirulito', 98),
 (44, 'nome', NULL, NULL, NULL, NULL, 'nome@email.com', 'nome', 99);
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `distribuidora`
---
-
-CREATE TABLE `distribuidora` (
-  `id` int NOT NULL,
-  `id_produtos` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `duplicatas`
---
-
-CREATE TABLE `duplicatas` (
-  `id` int NOT NULL,
-  `numero` int DEFAULT NULL,
-  `vencimento` date DEFAULT NULL,
-  `id_cliente` int DEFAULT NULL,
-  `banco` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Extraindo dados da tabela `duplicatas`
---
-
 INSERT INTO `duplicatas` (`id`, `numero`, `vencimento`, `id_cliente`, `banco`) VALUES
 (1, 10000, '2024-03-03', 1, 'Bradesco'),
 (2, 234534300, '2026-09-08', 14, 'Nubank'),
@@ -119,36 +146,6 @@ INSERT INTO `duplicatas` (`id`, `numero`, `vencimento`, `id_cliente`, `banco`) V
 (4, 78451000, '2027-08-02', 10, 'Itau'),
 (5, 2323000, '2029-09-09', 14, 'Next'),
 (6, 15645400, '2040-09-07', 35, 'BB');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `faturas`
---
-
-CREATE TABLE `faturas` (
-  `id` int NOT NULL,
-  `numero` int DEFAULT NULL,
-  `data` date DEFAULT NULL,
-  `id_duplicatas` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `funcionarios`
---
-
-CREATE TABLE `funcionarios` (
-  `id` int NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Extraindo dados da tabela `funcionarios`
---
 
 INSERT INTO `funcionarios` (`id`, `nome`, `email`, `senha`) VALUES
 (5, 'EvaPeqeuna', 'eva@example.com', '15451'),
@@ -158,28 +155,6 @@ INSERT INTO `funcionarios` (`id`, `nome`, `email`, `senha`) VALUES
 (9, 'Ian', 'ian@example.com', 'senha9'),
 (10, 'Julia', 'julia@example.com', 'senha10'),
 (11, 'kaleb', 'kaleb@gmail.com', '123456');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `produtos`
---
-
-CREATE TABLE `produtos` (
-  `id` int NOT NULL,
-  `titulo` varchar(30) NOT NULL,
-  `id_duplicatas` int DEFAULT NULL,
-  `preco` float DEFAULT NULL,
-  `familia` varchar(30) DEFAULT NULL,
-  `custo` float DEFAULT NULL,
-  `quantidade` int NOT NULL,
-  `vendas` int NOT NULL,
-  `lucro` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Extraindo dados da tabela `produtos`
---
 
 INSERT INTO `produtos` (`id`, `titulo`, `id_duplicatas`, `preco`, `familia`, `custo`, `quantidade`, `vendas`, `lucro`) VALUES
 (1, 'Requeijão', 1, 5, 'latcíenos', 3, 67, 100, '2.00'),
@@ -221,128 +196,3 @@ INSERT INTO `produtos` (`id`, `titulo`, `id_duplicatas`, `preco`, `familia`, `cu
 (39, 'Soja', 3, 12, 'Cereais', 8, 5, 254, '4.00'),
 (40, 'coisa', 5, 10, 'ndad', 5, 60, 5, '5.00'),
 (41, 'fds', 5, 10, 'fds', 5, 50, 6, '5.00');
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `clientes`
---
-ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_duplicatas` (`id_duplicatas`);
-
---
--- Índices para tabela `distribuidora`
---
-ALTER TABLE `distribuidora`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_produtos` (`id_produtos`);
-
---
--- Índices para tabela `duplicatas`
---
-ALTER TABLE `duplicatas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_cliente` (`id_cliente`);
-
---
--- Índices para tabela `faturas`
---
-ALTER TABLE `faturas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_duplicatas3` (`id_duplicatas`);
-
---
--- Índices para tabela `funcionarios`
---
-ALTER TABLE `funcionarios`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Índices para tabela `produtos`
---
-ALTER TABLE `produtos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_duplicatas2` (`id_duplicatas`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `clientes`
---
-ALTER TABLE `clientes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
-
---
--- AUTO_INCREMENT de tabela `distribuidora`
---
-ALTER TABLE `distribuidora`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `duplicatas`
---
-ALTER TABLE `duplicatas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de tabela `faturas`
---
-ALTER TABLE `faturas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `funcionarios`
---
-ALTER TABLE `funcionarios`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT de tabela `produtos`
---
-ALTER TABLE `produtos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `clientes`
---
-ALTER TABLE `clientes`
-  ADD CONSTRAINT `id_duplicatas` FOREIGN KEY (`id_duplicatas`) REFERENCES `duplicatas` (`id`);
-
---
--- Limitadores para a tabela `distribuidora`
---
-ALTER TABLE `distribuidora`
-  ADD CONSTRAINT `id_produtos` FOREIGN KEY (`id_produtos`) REFERENCES `produtos` (`id`);
-
---
--- Limitadores para a tabela `duplicatas`
---
-ALTER TABLE `duplicatas`
-  ADD CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`);
-
---
--- Limitadores para a tabela `faturas`
---
-ALTER TABLE `faturas`
-  ADD CONSTRAINT `id_duplicatas3` FOREIGN KEY (`id_duplicatas`) REFERENCES `duplicatas` (`id`);
-
---
--- Limitadores para a tabela `produtos`
---
-ALTER TABLE `produtos`
-  ADD CONSTRAINT `id_duplicatas2` FOREIGN KEY (`id_duplicatas`) REFERENCES `duplicatas` (`id`);
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
