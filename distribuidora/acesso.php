@@ -15,9 +15,7 @@
         </div>
     </header>
     
-   
         <nav>
-
             <div class="dropdown">
                 <a href="#">Produtos</a>
                 <div class="dropdown-content">
@@ -35,15 +33,11 @@
                 <a href="sobre.php">Sobre</a>
                 <a href="acesso.php">Acesso</a>
         </nav>
+
         </div>
-     
         <div class="container">
         <div class="wrapper">
-    <div class="card-switch">
-        <label class="switch">
-            <input type="checkbox" class="toggle">
-            <span class="slider"></span>
-            <span class="card-side"></span>
+            <div class="card-switch">
           
             <div class="flip-card__inner">
                 <div class="flip-card__front">
