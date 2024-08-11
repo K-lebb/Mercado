@@ -4,55 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/34/34627.png" type="image/png">
-
     <title>Supermercado Online</title>
-    <link rel="stylesheet" href="../css/site.css">
-    <link rel="stylesheet" href="../css/log.css">
+   <link rel="stylesheet" href="../css/log.css">
+   <link rel="stylesheet" href="../css/site.css">
 </head>
-
 <body>
     <header>
         <div class="main-title"><h1>Supermercado Online</h1></div>
             </div>
         </div>
     </header>
-    <div class="container">
+    
+   
         <nav>
 
-                <a href="home.php">Home</a>
+            <div class="dropdown">
+                <a href="#">Produtos</a>
+                <div class="dropdown-content">
+                    <a href="bebidas.php">Bebidas</a>
+                    <a href="acougue.php">Açougue</a>
+                    <a href="cereais.php">Cereais</a>
+                    <a href="enlatados.php">Enlatados</a>
+                    <a href="higiene.php">Higiene</a>
+                    <a href="hortifruiti.php">Hortifrúti</a>
+                    <a href="laticinios.php">Laticíneos</a>
+                    <a href="doces.php">Doces</a>
+                </div>
+            </div>
                 <a href="../index.php">Cadastro</a>
-                
+                <a href="sobre.php">Sobre</a>
+                <a href="acesso.php">Acesso</a>
         </nav>
-        <section>
+        </div>
+     
+        <div class="container">
         <div class="wrapper">
+    <div class="card-switch">
+        <label class="switch">
+            <input type="checkbox" class="toggle">
+            <span class="slider"></span>
+            <span class="card-side"></span>
+          
+            <div class="flip-card__inner">
+                <div class="flip-card__front">
+                    <div class="title">Log in</div>
+                    <form class="flip-card__form" action="acesso.php" method="post">
+                        <input class="flip-card__input" name="nome" placeholder="Nome" type="text">
+                        <input class="flip-card__input" name="email" placeholder="Email" type="email">
+                        <input class="flip-card__input" name="senha" placeholder="Password" type="password">
+                        <button class="flip-card__btn">Vamos lá!</button>
+                    </form>
+                    <?php
 
-<form action="acesso.php" method="post">
+                     include '../verificar/verificarGerente.php';
 
-<form action="acesso.php" method="post">
+                     ?>
 
-<div class="card-switch">
-    <label class="switch">
-       <input type="checkbox" class="toggle">
-       <span class="slider"></span>
-       <span class="card-side"></span>
-      
-          <div class="flip-card__front">
-             <div class="title">Log in</div>
-             <form class="flip-card__form" action="">
-                
-                <input class="flip-card__input" name="nome" placeholder="Nome" type="name">
-                <input class="flip-card__input" name="email" placeholder="Email" type="email">
-                <input class="flip-card__input" name="senha" placeholder="Password" type="password">
-                <button class="flip-card__btn">Vamos lá!</button>
-                </form>
+                </div>
+                </div>
+                </label>
+                </div>
+                </div>
 
-                <?php
-
-                include_once '../verificar/verificarGerente.php';
-
-?>
-
-             </form>
         </section>
     </div>
     <footer>

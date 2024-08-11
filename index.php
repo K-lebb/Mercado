@@ -43,17 +43,13 @@
                         <button class="flip-card__btn">Confirmar!</button>
                     </form>
                     
+                    
                 </div>
             </div>
         </label>
     </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <footer>
     <p>&copy; Feito por Valter, Brena e VJ. Todos os direitos reservados.</p>
 </footer>

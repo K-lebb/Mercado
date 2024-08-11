@@ -13,13 +13,30 @@ try {
 
     if ($result->num_rows > 0) {
         echo "Já existe um registro com este email.";
-        sleep(3);
-        header("location: ../home.php");
+        
+        ?>
+        <html>
+            <form action="../index.php" method="post">
+                <input type="submit" value="voltar">
+            </form>
+        </html>
+
+        <?php
+        
     } else {
         // Inserir o registro na tabela
         $sql = "INSERT INTO clientes (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
         if ($conn->query($sql) === TRUE) {
             echo "Registro inserido com sucesso!";
+
+            ?>
+            <html>
+            <form action="../index.php" method="post">
+                <input type="submit" value="voltar">
+            </form>
+        </html>
+
+        <?php
         } else {
             echo "Erro ao inserir registro: " . $conn->error;
         }
