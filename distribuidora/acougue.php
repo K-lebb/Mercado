@@ -60,6 +60,7 @@ include_once ("../verificar/conexao.php");
         <a href="doces.php">Doces</a>
     </div>
 </div>
+    <a href="home.php">Home</a>
     <a href="../index.php">Cadastro</a>
     <a href="sobre.php">Sobre</a>
     <a href="acesso.php">Acesso</a>

@@ -19,6 +19,7 @@
 
                 <a href="home.php">Home</a>
                 <a href="../index.php">Cadastro</a>
+                <a href="acesso.php">Acesso</a>
                 
         </nav>
         <section>

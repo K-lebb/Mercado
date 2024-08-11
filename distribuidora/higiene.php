@@ -54,8 +54,10 @@
                     <a href="doces.php">Doces</a>
                 </div>
             </div>
+                <a href="home.php">Home</a>
                 <a href="../index.php">Cadastro</a>
-                <a href="#">Sobre Nós</a>
+                <a href="sobre.php">Sobre Nós</a>
+                <a href="acesso.php">Acesso</a>
         </nav>
         <section>
     <div class="product-table">
