@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/34/34627.png" type="image/png">
     <title>Supermercado Online</title>
    <link rel="stylesheet" href="../css/log.css">
-   <link rel="stylesheet" href="../css/site.css">
+   <link rel="stylesheet" href="../css/site2.css">
 </head>
 <body>
     <header>

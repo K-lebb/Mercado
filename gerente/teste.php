@@ -1,18 +1,6 @@
-<html><style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-    </html>
+<html>
+<link rel="stylesheet" href="../css/site2.css">
+</html>
     
 <?php
 include '../verificar/conexao.php';

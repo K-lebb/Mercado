@@ -35,9 +35,6 @@ header .dropdown img{
     height: 40px;
     width: 40px;
 }
-.container {
-    display: flex;
-}
 nav {
     background-color: #f8f9fa;
     padding: 10px;
@@ -232,4 +229,17 @@ font-size: 18px;
 
 .cart-total-container strong {
 margin-right: 12px;
+}   
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
 }
