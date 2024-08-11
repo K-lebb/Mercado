@@ -71,7 +71,7 @@ ALTER TABLE faturas ADD KEY `id_duplicatas3` (`id_duplicatas`);
 
 ALTER TABLE funcionarios ADD PRIMARY KEY (`id`);
 
-ALTER TABLE funcionario ADD UNIQUE KEY `email` (`email`);
+ALTER TABLE funcionarios ADD UNIQUE KEY `email` (`email`);
 
 ALTER TABLE produtos ADD PRIMARY KEY (`id`);
 
